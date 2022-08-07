@@ -212,9 +212,14 @@ groups
   .attr('height', d => d.clipPath.height)
 
 const dragHandlerOf = {
-  'xAxis': () => dragAllMarker(d3.event.dx, 0),
-  'yAxis': () => dragAllMarker(0, d3.event.dy),
-  'plotArea':() => dragAllMarker(d3.event.dx, d3.event.dy)
+  //'xAxis': () => dragAllMarker(d3.event.dx, 0),
+  //'yAxis': () => dragAllMarker(0, d3.event.dy),
+  //'plotArea':() => dragAllMarker(d3.event.dx, d3.event.dy)
+	
+  // v7 modify
+  'xAxis': (event) => dragAllMarker(event.dx, 0),
+  'yAxis': (event) => dragAllMarker(0, event.dy),
+  'plotArea':(event) => dragAllMarker(event.dx, event.dy)
 }
 Object.keys(dragHandlerOf).forEach(area => {
   selectGroup(area)
