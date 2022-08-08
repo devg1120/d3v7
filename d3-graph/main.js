@@ -131,9 +131,12 @@ d3.json("data.json").then(
     var tooltip = d3.select("#contents").append("div").attr("class", "tooltip"),
         tt_date = tooltip.append("time").attr("class", "tt_date"),
         tt_value = tooltip.append("div").attr("class", "tt_value");
-    function mousemove() {
-      //var x0 = x.invert(d3.mouse(this)[0]),
-      var x0 = x.invert(d3.pointer(this)[0]),
+
+    //function mousemove() {
+    //  var x0 = x.invert(d3.mouse(this)[0]),
+	  //
+    function mousemove(e,d) {
+      var x0 = x.invert(d3.pointer(e)[0]),
           i = bisectDate(data, x0, 1),
           d0 = data[i - 1],
           d1 = data[i],
@@ -154,8 +157,13 @@ d3.json("data.json").then(
       tooltip.transition()
             .duration(200)
             .ease(d3.easeLinear)
-            .style("left", (d3.event.pageX + tooltipPosX) + "px")
-            .style("top", (d3.event.pageY - tooltipPosY) + "px");
+            //.style("left", (d3.event.pageX + tooltipPosX) + "px")
+            //.style("top", (d3.event.pageY - tooltipPosY) + "px");
+            //.style("left", (event,d) => (d.pageX + tooltipPosX + "px"))
+            //.style("top", (event,d)=> (d.pageY - tooltipPosY + "px"));
+            .style("left", (event,d) => (d.pageX + tooltipPosX) + "px")
+            .style("top", (event,d)=> (d.pageY - tooltipPosY) + "px");
+
       focus.attr("transform", "translate(" + parseInt(x(d.day) + x.bandwidth()/2) + "," + 0 + ")");
       focus.select(".x-hover-line").attr("y2", cHeight - margin.top);
 

@@ -1,0 +1,30 @@
+svg{
+  font: 10px sans-serif;
+  background-color: #eee;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: #333;
+}
+
+th,td {
+    border: solid 1px;          /* 枠線指定 */
+    border-color: #ccc;
+    padding: 4px;
+}
+
+table {
+    border-collapse:  collapse; /* セルの線を重ねる */
+}
+
+th {
+    text-align: center;           /* 文字の揃え位置指定 */
+    background: #eee;
+}
+
+td {
+    text-align:  left;        /* 文字の揃え位置指定 */
+    min-width: 60px;
+}
+
+

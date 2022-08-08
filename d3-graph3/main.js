@@ -72,8 +72,13 @@ import * as d3 from "d3";
           .text(d => d.data.value.toLocaleString());
  
       // clickイベントを設定
-      d3.selectAll("path").on("click",function(data,idx,elem){
-        var msg = "data:" + data.value + " idx:" + idx + " elem:" + elem + " d3.event.pageX: " + d3.event.pageX + " d3.mouse: " + d3.mouse(this) ;
+      //d3.selectAll("path").on("click",function(data,idx,elem){
+      //  var msg = "data:" + data.value + " idx:" + idx + " elem:" + elem + " d3.event.pageX: " + d3.event.pageX + " d3.mouse: " + d3.mouse(this) ;
+      //  alert(msg);
+      //});
+
+      d3.selectAll("path").on("click",function(event,data,idx,elem){
+        var msg = "data:" + data.value +  " event.pageX: " + event.pageX  ;
         alert(msg);
       });
 
