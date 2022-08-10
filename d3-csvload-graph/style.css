@@ -1,0 +1,10 @@
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+td, th {
+    padding: 1px 4px;
+}
